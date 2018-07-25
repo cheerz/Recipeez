@@ -1,0 +1,3 @@
+rootProject.name = 'Partnerz2'
+include 'server'
+
