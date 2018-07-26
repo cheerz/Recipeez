@@ -1,13 +1,14 @@
 <template>
   <div id="app">
-    Lets find a good name too
+    <home/>
   </div>
 </template>
 
 <script>
-
+import Home from './home/Home'
 export default {
-  name: 'app'
+  name: 'app',
+  components: { Home }
 }
 </script>
 

@@ -1,3 +1,4 @@
+import com.cheerz.server.routing
 import com.cheerz.server.sql.BrandTableSQL
 import io.ktor.application.call
 import io.ktor.content.resolveResource
@@ -17,7 +18,7 @@ import org.jetbrains.exposed.sql.transactions.transaction
 
 fun main(args: Array<String>) {
     val env = { name: String -> System.getenv(name) }
-    val database = Database.connect(
+    Database.connect(
             url = "jdbc:${env("DB_URI") ?: "postgresql://localhost:5432/partneerz"}",
             driver = "org.postgresql.Driver",
             user = env("DB_USER") ?: "postgres",
@@ -27,15 +28,6 @@ fun main(args: Array<String>) {
         SchemaUtils.create(BrandTableSQL)
     }
 
-    val server = embeddedServer(Netty, port = System.getenv("PORT")?.toInt() ?: 8080) {
-        routing {
-            static("/static/") {
-                resources("static")
-            }
-            get("/") {
-                call.respond(call.resolveResource("index.html")!!)
-            }
-        }
-    }
+    val server = embeddedServer(Netty, port = System.getenv("PORT")?.toInt() ?: 8080, module = routing)
     server.start(wait = true)
 }
