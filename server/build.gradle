@@ -42,7 +42,7 @@ repositories {
 }
 
 dependencies {
-    compile files('libs/postgresql-42.2.4.jar')
+    compile group: 'org.postgresql', name: 'postgresql', version: '42.2.2'
     compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
     implementation "io.ktor:ktor-server-core:$ktor_version"
     implementation "io.ktor:ktor-server-netty:$ktor_version"
