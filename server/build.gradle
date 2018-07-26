@@ -22,6 +22,12 @@ mainClassName = "MainKt"
 
 sourceSets.main.resources.srcDirs += "$rootDir/dist"
 
+jar {
+    manifest {
+        attributes 'Main-Class': 'MainKt'
+    }
+}
+
 group 'com.cheerz'
 version '1.0-SNAPSHOT'
 
