@@ -1,4 +1,4 @@
 group 'com.cheerz'
 version '1.0-SNAPSHOT'
 
-// task stage()
+task stage(dependsOn: [':server:jar'])

@@ -1,15 +1,26 @@
 buildscript {
     ext.ktor_version = '0.9.3'
+
+    repositories {
+        jcenter()
+    }
+
+    dependencies {
+        classpath 'com.github.jengelman.gradle.plugins:shadow:2.0.4'
+    }
 }
 
 plugins {
     id 'org.jetbrains.kotlin.jvm' version '1.2.51'
 }
 
+apply plugin: 'com.github.johnrengelman.shadow'
 apply plugin: 'java'
 apply plugin: 'application'
 
 mainClassName = "MainKt"
+
+sourceSets.main.resources.srcDirs += "$rootDir/dist"
 
 group 'com.cheerz'
 version '1.0-SNAPSHOT'
