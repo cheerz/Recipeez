@@ -1,8 +1,12 @@
 <template>
-    <brand-listing :brand-areas="brandAreas" />
+    <div>
+        <home-header />
+        <brand-listing :brand-areas="brandAreas" />
+    </div>
 </template>
 <script>
 import BrandListing from './BrandListing'
+import HomeHeader from './HomeHeader'
 import api from '../api.js'
 
 const convertAreas = (areas) => {
@@ -28,7 +32,7 @@ export default {
             brandAreas: []
         }
     },
-    components: { BrandListing }
+    components: { BrandListing, HomeHeader }
 }
 </script>
 

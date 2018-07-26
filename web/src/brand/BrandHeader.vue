@@ -17,7 +17,7 @@ export default {
     justify-content: center;
     align-items: center;
     background-color: blue;
-    height: 20vh;
+    height: 483px;
 }
 
 .brand-name {

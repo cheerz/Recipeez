@@ -1,6 +1,6 @@
 <template>
     <div>
-        {{ name }}
+         <div class="brandAreaName"> {{ name }}</div>
         <div class="brand-snippets">
             <div v-for="brand in brands" :key="brand.id">
                 <brand-snippet :brand-id="brand.id" />
@@ -20,5 +20,19 @@ export default {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+}
+
+.brandAreaName {
+  width: 80px;
+  height: 48px;
+  font-family: Rubik;
+  font-size: 32px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  color: #0e1554;
+  text-transform: capitalize;
 }
 </style>
