@@ -18,7 +18,7 @@
                 </div>
             </div>
         </div>
-        <img src="../assets/group-9.svg" class="premium">
+        <img src="../assets/group-93.png" class="premium">
         <div class="partnerships">
             <div v-for="partnership in partnerships" :key="partnership" class="partnership">
                 <span class="p-name">x MyLittleParis</span>

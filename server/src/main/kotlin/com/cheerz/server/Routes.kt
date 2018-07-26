@@ -41,15 +41,8 @@ val routing: Application.() -> Unit = {
             call.respond(call.resolveResource("index.html")!!)
         }
         route("/brands") {
-            get("{brandId}") {
-                call.respond(call.resolveResource("brand.html")!!)
-            }
             post {
-                val brand = call.receive<NewBrand>()
-                transaction {
-                    insertBrand(brand)
-                }
-                call.respondRedirect("/")
+                call.respond(call.resolveResource("brand.html")!!)
             }
         }
 
@@ -60,8 +53,15 @@ val routing: Application.() -> Unit = {
                     call.respond(areas)
                 }
             }
-            route("/brands/{brandId}") {
-                get {
+            route("/brands") {
+                post {
+                    val brand = call.receive<NewBrand>()
+                    transaction {
+                        insertBrand(brand)
+                    }
+                    call.respondRedirect("/")
+                }
+                get("/{brandId}") {
                     val brandId = call.parameters["brandId"]?.toInt()
                     val brand = brandId?.let { repo.getBrand(brandId) }
                     brand?.let { call.respond(it) } ?: call.respond(HttpStatusCode.NotFound)

@@ -3,7 +3,7 @@
         <img src="../assets/logo-edf.jpg" class="img" />
         <div class="caption-1">
             <div class="name">{{ name }}</div>
-            <div class="website">{{ website }}</div>
+            <a class="website" :href="website" target="_blank">{{ website }}</a>
         </div>
         <div class="caption-2">
             <div class="industry">{{ industry }}</div>
