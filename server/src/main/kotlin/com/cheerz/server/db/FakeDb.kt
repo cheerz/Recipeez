@@ -26,6 +26,8 @@ data class Brand(val id: Int,
                  val description: String ="Hello description",
                  val serialPartner: Boolean = true,
                  val maxBudget: String = Budget.values().asList().shuffled().first().budget,
+                 val website: String = "www.google.fr",
+                 val recipe: String = "Plenty of recipes",
                  val interests: Set<Interest> = setOf(Interest.REVENUE, Interest.VISIBILITY),
                  val targets: Set<Targets> = Targets.values()
                          .asList()

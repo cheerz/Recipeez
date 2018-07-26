@@ -45,7 +45,7 @@ export default {
     },
     methods: {
         showDetails() {
-            this.$emit('show-details')
+            this.$emit('show-details', this.brandId)
         }
     }
 }

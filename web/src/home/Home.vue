@@ -1,9 +1,10 @@
 <template>
     <div class="home-container">
-        <!-- <transition name="fade">
-            <div v-show="showModal" class="details-modal" @click="hideModal">
+        <transition name="fade">
+            <div v-if="showModal && currentBrand" class="details-modal" @click="hideModal">
+                <brand-modal :brand="currentBrand" style="background-color: white;"/>
             </div>
-        </transition> -->
+        </transition>
         <div>
             <home-header />
             <brand-listing :brand-areas="brandAreas" @show-details="showDetails" />
@@ -13,6 +14,7 @@
 <script>
 import BrandListing from './BrandListing'
 import HomeHeader from './HomeHeader'
+import BrandModal from '../brandmodal/BrandModal'
 import api from '../api.js'
 
 const convertAreas = (areas) => {
@@ -27,7 +29,10 @@ const convertAreas = (areas) => {
                     industry: brand.industries[0],
                     interests: brand.interests,
                     description: brand.description,
-                    budget: brand.maxBudget
+                    budget: brand.maxBudget,
+                    website: brand.website,
+                    categories: brand.targets,
+                    recipe: brand.recipe
                 }
             })
         }
@@ -41,18 +46,27 @@ export default {
     data() {
         return {
             brandAreas: [],
-            showModal: undefined
+            showModal: true,
+            currentBrand: undefined
         }
     },
     methods: {
-        showDetails() {
+        showDetails(brandId) {
             this.showModal = true
+            this.currentBrand = Object.values(this.brandAreas).reduce((acc,el) => {
+                if (acc) {
+                    return acc
+                } else {
+                    return el.brands.find(brand => brand.id == brandId)
+                }
+            }, undefined)
+
         },
         hideModal() {
             this.showModal = false
         }
     },
-    components: { BrandListing, HomeHeader }
+    components: { BrandListing, HomeHeader, BrandModal }
 }
 </script>
 <style>
@@ -67,16 +81,19 @@ export default {
     overflow: auto;
 }
 .details-modal {
-    position: absolute;
+    position: fixed;
     left: 0;
     top: 0;
     right: 0;
     bottom: 0;
     width: 100%;
     height: 100%;
-    background-color: blueviolet;
-    overflow:auto;
-    opacity: 0.5;
+    z-index: 10;
+    overflow: auto;
+    background-color: rgba(14, 21, 84, 0.57);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .fade-enter-active, .fade-leave-active {

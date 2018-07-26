@@ -41,8 +41,8 @@ export default {
         }
     },
     methods: {
-        showDetails() {
-            this.$emit('show-details')
+        showDetails(brandId) {
+            this.$emit('show-details', brandId)
         },
         applyFilter(filter) {
             const filterType = filter.type

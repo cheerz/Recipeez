@@ -23,8 +23,8 @@ import BrandSnippet from './BrandSnippet'
 export default {
     props: ['brands', 'name'],
     methods: {
-        showDetails() {
-            this.$emit('show-details')
+        showDetails(brandId) {
+            this.$emit('show-details', brandId)
         }
     },
     components: { BrandSnippet }

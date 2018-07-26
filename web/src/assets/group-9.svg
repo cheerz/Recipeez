@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="180" height="28" viewBox="0 0 180 28">
+    <g fill="none" fill-rule="evenodd">
+        <rect width="180" height="28" fill="#FFE280" fill-opacity=".599" fill-rule="nonzero" rx="4"/>
+        <text fill="#806200" font-family="Rubik-Regular, Rubik" font-size="12">
+            <tspan x="32" y="17">SERIAL PARTNER</tspan>
+        </text>
+        <g fill-rule="nonzero">
+            <path d="M4 4h20v20H4z"/>
+            <path fill="#FFC400" d="M10.872 10.116l2.38-4.819a.834.834 0 0 1 1.495 0l2.381 4.82 5.325.777c.683.1.956.939.46 1.42l-3.851 3.749.909 5.295a.833.833 0 0 1-1.21.878L14 19.734l-4.762 2.502a.833.833 0 0 1-1.209-.878l.91-5.295-3.853-3.749a.832.832 0 0 1 .461-1.42l5.325-.778z"/>
+        </g>
+    </g>
+</svg>
