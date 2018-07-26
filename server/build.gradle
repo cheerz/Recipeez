@@ -35,13 +35,25 @@ repositories {
     mavenCentral()
     jcenter()
     maven { url "https://dl.bintray.com/kotlin/ktor" }
+    maven {
+        url  "https://dl.bintray.com/kotlin/exposed"
+    }
+
 }
 
 dependencies {
+    implementation files('libs/postgresql-42.2.4.jar')
     compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
     implementation "io.ktor:ktor-server-core:$ktor_version"
     implementation "io.ktor:ktor-server-netty:$ktor_version"
     implementation "ch.qos.logback:logback-classic:1.2.1"
+    implementation 'org.jetbrains.exposed:exposed:0.10.4'
+
+}
+
+run.doFirst {
+    environment 'DB_PASSWORD', DB_PASSWORD
+    environment 'DB_USER', DB_USER
 }
 
 compileKotlin {
