@@ -18,7 +18,7 @@ import org.jetbrains.exposed.sql.transactions.transaction
 fun main(args: Array<String>) {
     val env = { name: String -> System.getenv(name) }
     val database = Database.connect(
-            url = "jdbc:${env("DATABASE_URL") ?: "postgresql://localhost:5432/partneerz"}",
+            url = "jdbc:${env("DB_URI") ?: "postgresql://localhost:5432/partneerz"}",
             driver = "org.postgresql.Driver",
             user = env("DB_USER") ?: "postgres",
             password = env("DB_PASSWORD"))
