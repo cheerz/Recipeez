@@ -1,6 +1,8 @@
 package com.cheerz.server
 
+import com.cheerz.server.client.NewBrand
 import com.cheerz.server.db.FakeRepository
+import com.cheerz.server.sql.insertBrand
 import io.ktor.application.Application
 import io.ktor.application.call
 import io.ktor.application.install
@@ -13,11 +15,14 @@ import io.ktor.features.ContentNegotiation
 import io.ktor.features.DefaultHeaders
 import io.ktor.gson.gson
 import io.ktor.http.HttpStatusCode
+import io.ktor.request.receive
 import io.ktor.response.respond
-import io.ktor.response.respondText
+import io.ktor.response.respondRedirect
 import io.ktor.routing.get
+import io.ktor.routing.post
 import io.ktor.routing.route
 import io.ktor.routing.routing
+import org.jetbrains.exposed.sql.transactions.transaction
 
 val repo: Repository = FakeRepository()
 
@@ -35,10 +40,20 @@ val routing: Application.() -> Unit = {
         get("/") {
             call.respond(call.resolveResource("index.html")!!)
         }
-        get("/brands/{brandId}") {
-            call.respond(call.resolveResource("brand.html")!!)
+        route("/brands") {
+            get("{brandId}") {
+                call.respond(call.resolveResource("brand.html")!!)
+            }
+            post {
+                val brand = call.receive<NewBrand>()
+                transaction {
+                    insertBrand(brand)
+                }
+                call.respondRedirect("/")
+            }
         }
-        route("/api"){
+
+        route("/api") {
             route("/areas") {
                 get {
                     val areas = repo.getBrandsByAreas()
@@ -48,10 +63,11 @@ val routing: Application.() -> Unit = {
             route("/brands/{brandId}") {
                 get {
                     val brandId = call.parameters["brandId"]?.toInt()
-                    val brand = brandId?.let {repo.getBrand(brandId) }
+                    val brand = brandId?.let { repo.getBrand(brandId) }
                     brand?.let { call.respond(it) } ?: call.respond(HttpStatusCode.NotFound)
                 }
             }
         }
     }
 }
+

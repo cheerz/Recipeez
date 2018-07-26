@@ -7,19 +7,26 @@ enum class Industry {
     FOOD, TRAVEL, SERVICES
 }
 
-enum class Budget {
-    LESS_THAN_1K, FROM_1K_TO_10K, FROM_10K_TO_100K, ABOVE_100K
+enum class Budget(val budget: String) {
+    LESS_THAN_1K("1000"), FROM_1K_TO_10K("10000"), FROM_10K_TO_100K("100000"), ABOVE_100K("∞")
 }
 
 enum class Targets {
     MUM, SOUVENIRS, FUN, TRAVEL
 }
 
+enum class Interest {
+    REVENUE, VISIBILITY, ACQUISITION, LOYALTY
+}
+
 data class Brand(val id: Int,
                  val name: String,
                  val link: String,
                  val industries: Set<Industry>,
-                 val maxBudget: Budget = Budget.values().asList().shuffled().first(),
+                 val description: String ="Hello description",
+                 val serialPartner: Boolean = true,
+                 val maxBudget: String = Budget.values().asList().shuffled().first().budget,
+                 val interests: Set<Interest> = setOf(Interest.REVENUE, Interest.VISIBILITY),
                  val targets: Set<Targets> = Targets.values()
                          .asList()
                          .shuffled()
@@ -29,7 +36,7 @@ data class Brand(val id: Int,
 
 private val fakeDb = listOf(
         Brand(0, "0", "https://www.linkedin.com/in/charlesbail/", setOf(Industry.FOOD)),
-        Brand(1, "1", "https://www.linkedin.com/in/charlesbail/", setOf(Industry.TRAVEL), Budget.FROM_1K_TO_10K),
+        Brand(1, "1", "https://www.linkedin.com/in/charlesbail/", setOf(Industry.TRAVEL)),
         Brand(2, "2", "https://www.linkedin.com/in/charlesbail/", setOf(Industry.SERVICES)),
         Brand(3, "3", "https://www.linkedin.com/in/charlesbail/", setOf(Industry.FOOD, Industry.TRAVEL)),
         Brand(4, "4", "https://www.linkedin.com/in/charlesbail/", setOf(Industry.FOOD, Industry.SERVICES)),

@@ -4,7 +4,9 @@
         <brand-area v-for="area in brandAreas"
             :key="area.id"
             :brands="area.brands"
-            :name="area.name"/>
+            @show-details="showDetails"
+            :name="area.name"
+            class="brandArea"/>
     </div>
 </template>
 <script>
@@ -39,6 +41,9 @@ export default {
         }
     },
     methods: {
+        showDetails() {
+            this.$emit('show-details')
+        },
         applyFilter(filter) {
             const filterType = filter.type
         }
@@ -47,12 +52,16 @@ export default {
 }
 </script>
 <style scoped>
+.brandArea {
+    margin-top: 70px;
+}
 .brand-listing-container {
     display: flex;
     flex-direction: column;
     background-color: #f7f7fb;
     padding-left: 4%;
     padding-right: 4%;
+    padding-bottom: 40px;
 }
 </style>
 
