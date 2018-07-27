@@ -3,7 +3,7 @@
         <div class="header">
         </div>
         <div class="image">
-            <img  class="img" src="../assets/logo-edf.jpg" />
+            <img  class="img" src="../assets/company-logo3.jpg" />
         </div>
         <div class="content">
             <div class="name-container">
