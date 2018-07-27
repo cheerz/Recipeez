@@ -3,7 +3,7 @@
         <div class="header">
         </div>
         <div class="image">
-            <img  class="img" src="../assets/company-logo3.jpg" />
+            <img class="img" :src="image" />
         </div>
         <div class="content">
             <div class="name-container">
@@ -36,7 +36,7 @@
 </template>
 <script>
 export default {
-    props: ['brandId', 'brandName', 'industry', 'interests', 'description', 'budget'],
+    props: ['brandId', 'brandName', 'industry', 'interests', 'description', 'image', 'budget'],
     computed: {
         imageSrc() {
             const id = this.brandId % 3 +1
@@ -60,9 +60,9 @@ export default {
 .image {
     width: 90px;
     height: 90px;
-    background-color: #0e1554;
     margin-left: 35px;
     transform: translateY(-50px);
+    box-shadow: 0 2px 9px 0 rgba(0, 0, 0, 0.07);
 }
 
 .img {

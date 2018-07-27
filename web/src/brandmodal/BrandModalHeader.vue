@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <img src="../assets/company-logo3.jpg" class="img" />
+        <img :src="image" class="img" />
         <div class="caption-1">
             <div class="name">{{ name }}</div>
             <a class="website" :href="website" target="_blank">{{ website }}</a>
@@ -17,7 +17,7 @@
 </template>
 <script>
 export default {
-    props: ['name', 'industry', 'website', 'categories']
+    props: ['name', 'industry', 'website', 'categories', 'image']
 }
 </script>
 

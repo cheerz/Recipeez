@@ -34,7 +34,8 @@ const convertAreas = (areas) => {
                     categories: brand.targets,
                     recipe: brand.recipe,
                     link: brand.link,
-                    tags: brand.tags
+                    tags: brand.tags,
+                    image: brand.imagePath || require('../assets/company-logo3.jpg')
                 }
             })
         }

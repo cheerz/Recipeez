@@ -2,6 +2,7 @@
     <div class="container">
         <modal-header :name="brand.name" :website="brand.website"
             :categories="categories"
+            :image="brand.image"
             :industry="brand.industry" />
         <modal-linkedin :description="brand.description" :recipe="brand.recipe" :linkedin="brand.link" />
         <modal-details :interests="brand.interests" :budget="brand.budget" />

@@ -24,7 +24,8 @@ class DBRepository : Repository {
                                     website = it[BrandTableSQL.website],
                                     recipe = it[BrandTableSQL.recipes],
                                     interests = it[BrandTableSQL.purpose].split(separator).toSet(),
-                                    tags = it[BrandTableSQL.tags])
+                                    tags = it[BrandTableSQL.tags],
+                                    imagePath = it[BrandTableSQL.imagePath])
                         }
                     }
 

@@ -35,7 +35,8 @@ data class Brand(val id: Int,
                          .take(Random().nextInt(Targets.values().size - 1) + 1)
                          .map { it.name }
                          .toSet(),
-                 val tags: String = ""
+                 val tags: String = "",
+                 val imagePath: String = ""
 )
 
 private val fakeDb = listOf(

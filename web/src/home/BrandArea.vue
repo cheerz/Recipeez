@@ -10,6 +10,7 @@
                 :interests="brand.interests"
                 :description="brand.description"
                 :budget="brand.budget"
+                :image="brand.image"
                 class="brandSnippet" />
             </div> 
         </div>
@@ -35,11 +36,11 @@ export default {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    margin-right: 20px;
 }
 
 .brandSnippet {
     margin-bottom: 25px;
+    margin-right: 50px;
 }
 
 .brand-show-all {
