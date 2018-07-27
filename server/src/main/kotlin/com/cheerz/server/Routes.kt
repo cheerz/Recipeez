@@ -45,9 +45,6 @@ val routing: Application.() -> Unit = {
             get {
                 call.respond(call.resolveResource("brand.html")!!)
             }
-            post {
-                call.respondRedirect("/brands")
-            }
         }
 
         route("/api") {

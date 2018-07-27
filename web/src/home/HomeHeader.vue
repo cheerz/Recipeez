@@ -14,7 +14,7 @@
 export default {
     methods: {
         register() {
-            fetch('/brands', { method: 'POST'})
+            window.location.href="/brands"
         }
     }
 }
