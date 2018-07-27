@@ -32,7 +32,9 @@ const convertAreas = (areas) => {
                     budget: brand.maxBudget,
                     website: brand.website,
                     categories: brand.targets,
-                    recipe: brand.recipe
+                    recipe: brand.recipe,
+                    link: brand.link,
+                    tags: brand.tags
                 }
             })
         }

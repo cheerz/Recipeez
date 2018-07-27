@@ -17,5 +17,6 @@ fun insertBrand(brand: NewBrand): InsertStatement<Number> {
         it[BrandTableSQL.gender] = brand.gender
         it[BrandTableSQL.website] = brand.website
         it[BrandTableSQL.purpose] = brand.purpose.joinToString(separator)
+        it[BrandTableSQL.tags] = brand.tags
     }
 }

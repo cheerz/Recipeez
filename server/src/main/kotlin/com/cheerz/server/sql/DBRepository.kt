@@ -2,7 +2,6 @@ package com.cheerz.server.sql
 
 import com.cheerz.server.Repository
 import com.cheerz.server.db.Brand
-import com.cheerz.server.db.Industry
 import org.jetbrains.exposed.sql.selectAll
 import org.jetbrains.exposed.sql.transactions.transaction
 
@@ -24,7 +23,8 @@ class DBRepository : Repository {
                                     maxBudget = it[BrandTableSQL.maxBudget],
                                     website = it[BrandTableSQL.website],
                                     recipe = it[BrandTableSQL.recipes],
-                                    interests = it[BrandTableSQL.purpose].split(separator).toSet())
+                                    interests = it[BrandTableSQL.purpose].split(separator).toSet(),
+                                    tags = it[BrandTableSQL.tags])
                         }
                     }
 

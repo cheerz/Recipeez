@@ -9,7 +9,7 @@
             <div class="industry">{{ industry }}</div>
             <div class="categories">
                 <span class="category" v-for="category in categories" :key="category">
-                    #{{ category }}
+                    {{ category }}
                 </span>
             </div>
         </div>

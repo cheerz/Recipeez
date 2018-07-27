@@ -14,5 +14,6 @@ object BrandTableSQL : Table() {
     val website: Column<String> = varchar("website", 200)
     val gender: Column<String> = varchar("gender", 50)
     val purpose: Column<String> = varchar("purpose", 200)
+    val tags: Column<String> = varchar("tags", 200).default("")
 }
 

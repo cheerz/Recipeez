@@ -9,4 +9,5 @@ data class NewBrand(val name: String,
                     val purpose: List<String>,
                     val budget: String,
                     val description: String,
-                    val recipe: String)
+                    val recipe: String,
+                    val tags: String)

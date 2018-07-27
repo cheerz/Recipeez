@@ -23,7 +23,7 @@ data class Brand(val id: Int,
                  val name: String,
                  val link: String,
                  val industries: Set<String>,
-                 val description: String ="Hello description",
+                 val description: String = "Hello description",
                  val serialPartner: Boolean = true,
                  val maxBudget: String = Budget.values().asList().shuffled().first().budget,
                  val website: String = "www.google.fr",
@@ -32,9 +32,10 @@ data class Brand(val id: Int,
                  val targets: Set<String> = Targets.values()
                          .asList()
                          .shuffled()
-                         .take(Random().nextInt(Targets.values().size -1) +1)
+                         .take(Random().nextInt(Targets.values().size - 1) + 1)
                          .map { it.name }
-                         .toSet()
+                         .toSet(),
+                 val tags: String = ""
 )
 
 private val fakeDb = listOf(

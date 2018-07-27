@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <modal-header :name="brand.name" :website="brand.website"
-            :categories="brand.categories"
+            :categories="categories"
             :industry="brand.industry" />
         <modal-linkedin :description="brand.description" :recipe="brand.recipe" :linkedin="brand.link" />
         <modal-details :interests="brand.interests" :budget="brand.budget" />
@@ -13,6 +13,15 @@ import ModalLinkedin from './BrandModalLinkedin'
 import ModalDetails from './BrandModalDetails'
 export default {
     props: ['brand'],
+    computed: {
+        categories() {
+            if (this.brand.tags) {
+                return this.brand.tags.split(" ")
+            } else {
+                return []
+            }
+        }
+    },
     components: { ModalHeader, ModalLinkedin, ModalDetails }
 }
 </script>
