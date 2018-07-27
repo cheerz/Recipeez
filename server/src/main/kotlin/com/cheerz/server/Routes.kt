@@ -41,11 +41,10 @@ val routing: Application.() -> Unit = {
         get("/") {
             call.respond(call.resolveResource("index.html")!!)
         }
-        route("/brands") {
-            post {
-                call.respond(call.resolveResource("brand.html")!!)
-            }
+        post("/brands") {
+            call.respond(call.resolveResource("brand.html")!!)
         }
+
 
         route("/api") {
             route("/areas") {
