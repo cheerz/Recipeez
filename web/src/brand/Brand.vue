@@ -90,7 +90,9 @@ export default {
         goToNext() {
             if (this.valid) {
                 if (this.currentStep == steps.length - 1) {
-                    api.brand(this.info)
+                    api.brand(this.info).then( b => {
+                        window.location.href="/"
+                    })
                 } else {
                     this.currentStep = this.currentStep + 1
                 }

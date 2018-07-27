@@ -19,6 +19,7 @@ import io.ktor.http.HttpStatusCode
 import io.ktor.request.receive
 import io.ktor.response.respond
 import io.ktor.response.respondRedirect
+import io.ktor.response.respondText
 import io.ktor.routing.get
 import io.ktor.routing.post
 import io.ktor.routing.route
@@ -60,7 +61,7 @@ val routing: Application.() -> Unit = {
                     transaction {
                         insertBrand(brand)
                     }
-                    call.respondRedirect("/")
+                    call.respondText("OK")
                 }
                 get("/{brandId}") {
                     val brandId = call.parameters["brandId"]?.toInt()
