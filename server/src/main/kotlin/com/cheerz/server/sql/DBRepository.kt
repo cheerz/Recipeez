@@ -24,8 +24,7 @@ class DBRepository : Repository {
                                     maxBudget = it[BrandTableSQL.maxBudget],
                                     website = it[BrandTableSQL.website],
                                     recipe = it[BrandTableSQL.recipes],
-                                    interests = it[BrandTableSQL.purpose].split("/").toSet(),
-                                    targets = setOf())
+                                    interests = it[BrandTableSQL.purpose].split(separator).toSet())
                         }
                     }
 

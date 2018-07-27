@@ -4,6 +4,8 @@ import com.cheerz.server.client.NewBrand
 import org.jetbrains.exposed.sql.insert
 import org.jetbrains.exposed.sql.statements.InsertStatement
 
+const val separator = "/"
+
 fun insertBrand(brand: NewBrand): InsertStatement<Number> {
     return BrandTableSQL.insert {
         it[BrandTableSQL.linkedinLink] = brand.linkedin
@@ -14,6 +16,6 @@ fun insertBrand(brand: NewBrand): InsertStatement<Number> {
         it[BrandTableSQL.name] = brand.name
         it[BrandTableSQL.gender] = brand.gender
         it[BrandTableSQL.website] = brand.website
-        it[BrandTableSQL.purpose] = brand.purpose.joinToString("/")
+        it[BrandTableSQL.purpose] = brand.purpose.joinToString(separator)
     }
 }
