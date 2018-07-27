@@ -15,6 +15,6 @@ object BrandTableSQL : Table() {
     val gender: Column<String> = varchar("gender", 50)
     val purpose: Column<String> = varchar("purpose", 200)
     val tags: Column<String> = varchar("tags", 200).default("")
-    val imagePath: Column<String> = varchar("tags", 500).default("")
+    val imagePath: Column<String> = varchar("image", 500).default("")
 }
 
