@@ -40,7 +40,7 @@ export default {
 
 .brandSnippet {
     margin-bottom: 25px;
-    margin-right: 50px;
+    margin-right: 25px;
 }
 
 .brand-show-all {
