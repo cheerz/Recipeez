@@ -28,8 +28,8 @@ export default {
 
 .filters {
     margin-top: 64px;
-    width: 588px;
-    height: 208px;
+    width: 634px;
+    height: 254px;
     align-self: center;
     z-index: 100;
 }

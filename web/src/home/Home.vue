@@ -85,8 +85,8 @@ export default {
 }
 
 .listing {
-    padding-top: 104;
-    transform: translateY(-104px);
+    padding-top: 127;
+    transform: translateY(-127px);
     z-index: 0;
 }
 
