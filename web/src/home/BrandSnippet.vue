@@ -63,6 +63,7 @@ export default {
     margin-left: 35px;
     transform: translateY(-50px);
     box-shadow: 0 2px 9px 0 rgba(0, 0, 0, 0.07);
+    background-color: #ffffff;
 }
 
 .img {
