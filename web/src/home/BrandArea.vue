@@ -35,7 +35,7 @@ export default {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-between;
+    margin-right: 20px;
 }
 
 .brandSnippet {

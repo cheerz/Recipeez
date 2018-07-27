@@ -176,6 +176,10 @@ export default {
 .description {
     margin-top: 10px;
     text-overflow: ellipsis;
+    max-height: 1.5em;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
 }
 </style>
 

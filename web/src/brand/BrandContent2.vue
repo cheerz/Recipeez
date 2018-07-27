@@ -52,7 +52,7 @@ export default {
     box-shadow: inset 0 2px 4px 0 rgba(140, 155, 165, 0.12);
     background-color: #ffffff;
     border: solid 1px rgba(140, 155, 165, 0.54);
-    font-family: NunitoSans;
+    font-family: Rubik;
     padding-left: 15px;
     font-size: 14px;
     font-weight: normal;

@@ -38,7 +38,7 @@ export default {
     },
     methods: {
         redirectlinkedin() {
-            window.location.href = this.linkedin
+            window.open(this.linkedin, '_blank' )
         }
     }
 }
