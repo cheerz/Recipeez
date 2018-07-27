@@ -1,6 +1,6 @@
 <template>
     <div class="brand-listing-container">
-        <!-- <brand-filter-bar :filters="filters" @filtered="applyFilter" /> -->
+        <!-- <brand-filter-bar :filters="filters" @filter="applyFilter" /> -->
         <brand-area v-for="area in brandAreas"
             :key="area.id"
             :brands="area.brands"
@@ -10,7 +10,6 @@
     </div>
 </template>
 <script>
-import BrandFilterBar from './BrandFilterBar'
 import BrandArea from './BrandArea'
 
 const filters = {
@@ -23,32 +22,15 @@ const filters = {
 
 export default {
     props: ['brandAreas'],
-    data() {
-        return {
-            filters: filters,
-            filterMethod: b => b
-        }
-    },
-    computed: {
-        filteredBrandAreas() {
-            return this.brandAreas.reduce((acc, area) => {
-                const newArea = {
-
-                }
-                acc.push(newArea)
-                return acc
-            }, [])
-        }
-    },
     methods: {
         showDetails(brandId) {
             this.$emit('show-details', brandId)
         },
         applyFilter(filter) {
-            const filterType = filter.type
+            this.filterMethod = brand => filter.budget && (brand.budget == filter.budget)
         }
     },
-    components: { BrandArea, BrandFilterBar }
+    components: { BrandArea }
 }
 </script>
 <style scoped>

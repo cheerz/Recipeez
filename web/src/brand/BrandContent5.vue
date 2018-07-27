@@ -1,16 +1,11 @@
 <template>
     <div>
-        <select class="iinput" v-model="budget">
-            <option value="" disabled hidden>Budget</option>
-            <option>&lt;1k€</option>
-            <option>&lt;10k€</option>
-            <option>&lt;100k€</option>
-            <option>&gt;100k€</option>
-        </select>
+        <budget @budget="updateBudget" />
     </div>
     
 </template>
 <script>
+import Budget from './Budget';
 export default {
     data() {
         return {
@@ -23,16 +18,19 @@ export default {
         },
         budget(budget) {
             this.$emit('field', {budget})
-        },
-        tags(tags) {
-            this.$emit('field', {tags})
         }
     },
     computed: {
         isValid() {
             return this.budget
         }
-    }
+    },
+    methods: {
+        updateBudget(budget) {
+            this.budget = budget
+        }
+    },
+    components: { Budget }
 }
 </script>
 

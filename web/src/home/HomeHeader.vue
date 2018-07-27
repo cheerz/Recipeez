@@ -7,16 +7,22 @@
             <div class="title">RECIPEEZ</div>
             <div class="caption">Make your partnerships tastier</div>
         </div>
-        <img class="filters" src="../assets/filter-box3.png"/>
+        <!-- <img class="filters" src="../assets/filter-box3.png"/> -->
+        <brand-filter-bar class="filters" @filter="filter"/>
     </div>
 </template>
 <script>
+import BrandFilterBar from './BrandFilterBar';
 export default {
     methods: {
         register() {
             window.location.href="/brands"
+        },
+        filter(filter) {
+            this.$emit('filter', filter)
         }
-    }
+    },
+    components: { BrandFilterBar }
 }
 </script>
 
@@ -27,9 +33,9 @@ export default {
 }
 
 .filters {
-    margin-top: 64px;
+    /* margin-top: 64px; */
     width: 634px;
-    height: 254px;
+    height: 150px;
     align-self: center;
     z-index: 100;
 }

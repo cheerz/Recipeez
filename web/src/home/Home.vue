@@ -6,8 +6,8 @@
             </div>
         </transition>
         <div>
-            <home-header style="z-index: 5" />
-            <brand-listing :brand-areas="brandAreas" @show-details="showDetails" class="listing" />
+            <home-header style="z-index: 5" @filter="applyFilter" />
+            <brand-listing :brand-areas="filteredBrandAreas" @show-details="showDetails" class="listing" />
         </div>
     </div>
 </template>
@@ -50,7 +50,25 @@ export default {
         return {
             brandAreas: [],
             showModal: true,
-            currentBrand: undefined
+            currentBrand: undefined,
+            filterMethod: undefined
+        }
+    },
+    computed: {
+        filteredBrandAreas() {
+            if (!this.filterMethod) {
+                return this.brandAreas
+            }
+            return this.brandAreas.reduce((acc, area) => {
+                const newArea = {
+                    ...area,
+                    brands: area.brands.filter(this.filterMethod)
+                }
+                if (newArea.brands.length > 0) {
+                    acc.push(newArea)
+                }
+                return acc
+            }, [])
         }
     },
     methods: {
@@ -67,7 +85,11 @@ export default {
         },
         hideModal() {
             this.showModal = false
-        }
+        },
+        applyFilter(filter) {
+            this.filterMethod = brand => filter.budget && (brand.budget == filter.budget)
+        },
+        
     },
     components: { BrandListing, HomeHeader, BrandModal }
 }
