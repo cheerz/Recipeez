@@ -25,7 +25,7 @@ fun main(args: Array<String>) {
             password = env("DB_PASSWORD"))
     transaction {
         addLogger(StdOutSqlLogger)
-        SchemaUtils.create(BrandTableSQL)
+        SchemaUtils.createMissingTablesAndColumns(BrandTableSQL)
     }
 
     val server = embeddedServer(Netty, port = System.getenv("PORT")?.toInt() ?: 8080, module = routing)

@@ -1,7 +1,7 @@
 <template>
     <div class="wrapper">
-        <div class="container">
-            <img class="img" src="../assets/company-owner-pic.jpg" />
+        <div class="container" @click="redirectlinkedin">
+            <img class="img" src="../assets/company-owner-pic3.jpg" />
             <div class="details">
                 <span class="caption">Represented by</span>
                 <span class="name">Arnaud Legaignoux</span>
@@ -30,10 +30,15 @@
 <script>
 const partnerships =[0, 1, 2]
 export default {
-    props: ['description', 'recipe'],
+    props: ['description', 'recipe', 'linkedin'],
     data() {
         return {
             partnerships: partnerships
+        }
+    },
+    methods: {
+        redirectlinkedin() {
+            window.location.href = this.linkedin
         }
     }
 }
@@ -49,6 +54,7 @@ export default {
 .container {
     display: flex;
     flex-direction: row;
+    cursor: pointer;
 }
 
 .premium {

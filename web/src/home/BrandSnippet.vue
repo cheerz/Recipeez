@@ -24,7 +24,7 @@
             <div class="budget">
                 <img src="../assets/icons-feather-mail.svg" class="icon"/>
                 <span class="budget-value">
-                    {{ budget }} €
+                    {{ budget }}
                 </span>
             </div>
             <div class="description">

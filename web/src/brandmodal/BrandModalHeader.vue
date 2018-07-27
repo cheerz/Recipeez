@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <img src="../assets/logo-edf.jpg" class="img" />
+        <img src="../assets/company-logo3.jpg" class="img" />
         <div class="caption-1">
             <div class="name">{{ name }}</div>
             <a class="website" :href="website" target="_blank">{{ website }}</a>

@@ -5,7 +5,7 @@ import com.cheerz.server.db.Industry
 
 interface Repository {
 
-    fun getBrandsByAreas(): Map<Industry, List<Brand>>
+    fun getBrandsByAreas(): Map<String, List<Brand>>
 
     fun getBrand(brandId: Int): Brand?
 }

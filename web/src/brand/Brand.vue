@@ -1,6 +1,9 @@
 <template>
     <div class="brand-container">
-        <span class="title">RECIPEEZ</span>
+        <span class="title" @click="redirect">RECIPEEZ</span>
+        <div class="back" v-show="currentStep > 0" @click="currentStep = currentStep -1">
+            ← Back
+        </div>
         <div class="content">
             <div class="fields">
                 <span class="content-title">{{title}}</span>
@@ -81,10 +84,13 @@ export default {
         }
     },
     methods: {
+        redirect() {
+            window.location.href = "/"
+        },
         goToNext() {
             if (this.valid) {
                 if (this.currentStep == steps.length - 1) {
-
+                    api.brand(this.info)
                 } else {
                     this.currentStep = this.currentStep + 1
                 }
@@ -155,7 +161,7 @@ export default {
     padding-left: 15px;
     padding-top: 8px;
     padding-bottom: 8px;
-    font-family: Nunito;
+    font-family: Rubik;
     font-size: 18px;
     font-weight: bold;
     font-style: normal;
@@ -194,18 +200,32 @@ export default {
     letter-spacing: normal;
     text-align: center;
     color: #0e1554;
+    cursor: pointer;
 }
 
 .content {
     margin-top: 40px;
 }
 
-.fade-enter-active, .fade-leave-active {
+.back {
+    font-family: Rubik;
+    font-size: 16px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.5;
+    letter-spacing: normal;
+    color: #8c9ba5;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+/* .fade-enter-active, .fade-leave-active {
   transition: opacity .5s;
 }
 .fade-enter, .fade-leave-to {
   opacity: 0;
-}
+} */
 
 </style>
 

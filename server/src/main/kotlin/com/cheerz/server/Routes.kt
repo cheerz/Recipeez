@@ -2,6 +2,7 @@ package com.cheerz.server
 
 import com.cheerz.server.client.NewBrand
 import com.cheerz.server.db.FakeRepository
+import com.cheerz.server.sql.DBRepository
 import com.cheerz.server.sql.insertBrand
 import io.ktor.application.Application
 import io.ktor.application.call
@@ -24,7 +25,7 @@ import io.ktor.routing.route
 import io.ktor.routing.routing
 import org.jetbrains.exposed.sql.transactions.transaction
 
-val repo: Repository = FakeRepository()
+val repo: Repository = DBRepository()
 
 val routing: Application.() -> Unit = {
     install(DefaultHeaders)

@@ -6,8 +6,8 @@
             </div>
         </transition>
         <div>
-            <home-header />
-            <brand-listing :brand-areas="brandAreas" @show-details="showDetails" />
+            <home-header style="z-index: 5" />
+            <brand-listing :brand-areas="brandAreas" @show-details="showDetails" class="listing" />
         </div>
     </div>
 </template>
@@ -80,6 +80,13 @@ export default {
     height: 100%;
     overflow: auto;
 }
+
+.listing {
+    padding-top: 104;
+    transform: translateY(-104px);
+    z-index: 0;
+}
+
 .details-modal {
     position: fixed;
     left: 0;

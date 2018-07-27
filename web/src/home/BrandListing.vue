@@ -53,7 +53,7 @@ export default {
 </script>
 <style scoped>
 .brandArea {
-    margin-top: 70px;
+    margin-top: 150px;
 }
 .brand-listing-container {
     display: flex;

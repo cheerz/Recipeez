@@ -22,7 +22,7 @@
             <div class="item-divider"></div>
             <div class="item-name">BUDGET AVAILABLE</div>
             <div class="item-content-3">
-                <span class="budget">{{ budget }}+</span>
+                <span class="budget">{{ budget }}</span>
                 <span class="free" v-show="freeProducts">Free Products</span>
             </div>
         </div>
